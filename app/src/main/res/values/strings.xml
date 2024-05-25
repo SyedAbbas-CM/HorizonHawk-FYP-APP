@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hhawk4</string>
+    <string name="sdk_version">SDK Version: %1$s</string>
+    <string name="disconnected">Disconnected</string>
+</resources>
