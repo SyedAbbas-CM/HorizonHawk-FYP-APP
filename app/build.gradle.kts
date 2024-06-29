@@ -82,7 +82,7 @@ dependencies {
     implementation(libs.androidx.monitor)
     implementation(libs.androidx.junit.ktx)
     compileOnly("com.dji:dji-sdk-provided:4.17")
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation ("com.google.android.gms:play-services-maps:17.0.0")
 
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt")
