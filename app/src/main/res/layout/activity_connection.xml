@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:padding="16dp">
 
     <TextView
@@ -9,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Status: Disconnected"
+        android:textColor="#F1F1F1"
         android:textSize="18sp" />
 
     <TextView
@@ -18,6 +20,7 @@
         android:layout_below="@id/text_connection_status"
         android:layout_marginTop="8dp"
         android:text="Model: Not Available"
+        android:textColor="#EAE4E4"
         android:textSize="16sp" />
 
     <TextView
@@ -27,6 +30,7 @@
         android:layout_below="@id/text_model_available"
         android:layout_marginTop="8dp"
         android:text="Product: Not Available"
+        android:textColor="#F8F3F3"
         android:textSize="16sp" />
 
     <TextView
@@ -44,6 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView2"
         android:layout_marginTop="16dp"
+        android:background="#434040"
+        android:enabled="false"
         android:text="Open"
-        android:enabled="false" />
+        android:textColor="#E6E1E1" />
 </RelativeLayout>

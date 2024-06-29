@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#151414"
     android:padding="16dp">
 
     <TextureView
@@ -16,14 +17,15 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
+
     <TextView
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/video_previewer_surface"
+        android:layout_centerHorizontal="true"
         android:text="00:00"
         android:textSize="18sp"
         android:visibility="invisible" />
@@ -51,9 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/connection_status"
+        android:layout_marginTop="8dp"
         android:text="Battery Level: --%"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
         android:visibility="visible" />
 
     <TextView
@@ -61,9 +63,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/battery_level"
+        android:layout_marginTop="8dp"
         android:text="Altitude: --m"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
         android:visibility="visible" />
 
     <Button
@@ -78,16 +80,16 @@
         android:id="@+id/btn_shoot_photo_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/btn_capture"
         android:layout_alignParentStart="true"
+        android:layout_toEndOf="@id/btn_capture"
         android:text="Photo Mode" />
 
     <Button
         android:id="@+id/btn_record_video_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/btn_shoot_photo_mode"
         android:layout_alignParentStart="true"
+        android:layout_toEndOf="@id/btn_shoot_photo_mode"
         android:text="Video Mode" />
 
 
@@ -104,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/detection_status"
         android:text="Open" />
+
     <TextureView
         android:id="@+id/video_previewer_surface"
         android:layout_width="match_parent"

@@ -34,9 +34,6 @@ import dji.sdk.products.HandHeld
 import dji.sdk.sdkmanager.DJISDKManager
 import kotlinx.coroutines.launch
 import dji.common.product.Model
-import org.opencv.android.Utils
-import org.opencv.core.Mat
-import okhttp3.OkHttpClient
 import dji.common.flightcontroller.FlightControllerState
 import dji.sdk.flightcontroller.FlightController
 import dji.sdk.battery.Battery
@@ -146,12 +143,14 @@ class MainActivity : AppCompatActivity(), TextureView.SurfaceTextureListener, Vi
         shootPhotoModeBtn = findViewById(R.id.btn_shoot_photo_mode)
         recordVideoModeBtn = findViewById(R.id.btn_record_video_mode)
         connectionStatus = findViewById(R.id.connection_status)
-        videoTextureView.surfaceTextureListener = this
+        batteryLevelTextView = findViewById(R.id.battery_level)
+        altitudeTextView = findViewById(R.id.altitude)
+        mapView = findViewById(R.id.map_view)
 
+        videoTextureView.surfaceTextureListener = this
         captureBtn.setOnClickListener(this)
         shootPhotoModeBtn.setOnClickListener(this)
         recordVideoModeBtn.setOnClickListener(this)
-
         recordingTime.visibility = View.INVISIBLE
 
 
@@ -286,7 +285,15 @@ class MainActivity : AppCompatActivity(), TextureView.SurfaceTextureListener, Vi
     }
 
     private fun uninitPreviewer() {
-        VideoFeeder.getInstance().primaryVideoFeed.removeVideoDataListener(receivedVideoDataListener)
+        // Check if VideoFeeder instance and primaryVideoFeed are not null before removing the listener
+        val videoFeeder = VideoFeeder.getInstance()
+        if (videoFeeder != null && videoFeeder.primaryVideoFeed != null) {
+            videoFeeder.primaryVideoFeed.removeVideoDataListener(receivedVideoDataListener)
+        } else {
+            Log.e(TAG, "VideoFeeder or primaryVideoFeed is null")
+        }
+        codecManager?.cleanSurface()
+        codecManager = null
     }
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
@@ -306,10 +313,6 @@ class MainActivity : AppCompatActivity(), TextureView.SurfaceTextureListener, Vi
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
 
-
-        val bitmap = videoTextureView.bitmap ?: return
-        val frame = Mat()
-        Utils.bitmapToMat(bitmap, frame)
     }
 
     override fun onClick(v: View?) {
