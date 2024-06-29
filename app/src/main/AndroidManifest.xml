@@ -50,6 +50,9 @@
         <meta-data
             android:name="com.dji.sdk.API_KEY"
             android:value="83783322e3998be1d246fafa" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY_HERE"/>
 
         <!-- DJI SDK -->
 
